@@ -167,6 +167,7 @@ WSGI_APPLICATION = 'ecommerce.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
+print('dbb', env('DB_DATABASE'), env('DB_USERNAME'), env('DB_PASSWORD'), env('DB_HOST'), env('DB_PORT'), env('DB_PORT_PUBLIC'))
 DATABASES = {
     # 'default': {
     #     'ENGINE': 'django.db.backends.sqlite3',
@@ -180,6 +181,8 @@ DATABASES = {
         'STRICT_TRANS_TABLES': True,
         'STRICT_ALL_TABLES': True,
         'sql_mode': 'traditional',
+        "HOST": env('DB_HOST'),
+        "PORT": env('DB_PORT'),
     },
     # 'test' : {
     #     'ENGINE': 'django.db.backends.mysql',

@@ -45,7 +45,8 @@ class PaymentMethod(SafeDeleteModel):
 
     payment_method_name = models.CharField(blank=False, max_length=50)
     status = models.ForeignKey(Status, on_delete=models.CASCADE,
-                              default=Status.objects.filter(module_name='master.payment_method', status_int=1).get().pk
+                            #   default=Status.objects.filter(module_name='master.payment_method', status_int=1).get().pk # making error when first migration create, use static and sync with your seeder instead
+                              default=4
                               )
     created_at = models.DateTimeField(blank=False, auto_now_add=True)
     updated_at = models.DateTimeField(blank=True, auto_now=True, null=True)
@@ -63,7 +64,8 @@ class Bank(SafeDeleteModel):
     bank_name = models.CharField(blank=False, max_length=100)
     code = models.CharField(blank=False, max_length=10)
     status = models.ForeignKey(Status, on_delete=models.CASCADE,
-                               default=Status.objects.filter(module_name='master.bank', status_int=1).get().pk
+                            #    default=Status.objects.filter(module_name='master.bank', status_int=1).get().pk
+                                default=21
                                )
     created_at = models.DateTimeField(blank=False, auto_now_add=True)
     updated_at = models.DateTimeField(blank=True, auto_now=True, null=True)

@@ -14,7 +14,8 @@ class Cart(SafeDeleteModel):
     status = models.ForeignKey(mModel.Status,
                                related_name='cart_status',
                                on_delete=models.CASCADE,
-                               default=mModel.Status.objects.filter(status_int=1, module_name='order.cart').first().pk
+                            #    default=mModel.Status.objects.filter(status_int=1, module_name='order.cart').first().pk
+                            default = 9
                                )
     created_at = models.DateTimeField(blank=False, auto_now_add=True)
     updated_at = models.DateTimeField(blank=True, auto_now=True)
@@ -33,7 +34,9 @@ class Checkout(SafeDeleteModel):
     user_store = models.ForeignKey(sModel.UserStore, related_name='checkout_user_store', on_delete=models.CASCADE)
     status = models.ForeignKey(mModel.Status, related_name='checkout_status',
                                on_delete=models.CASCADE, blank=True,
-                               default=mModel.Status.objects.filter(module_name='order.checkout', status_int=1).get().pk)
+                            #    default=mModel.Status.objects.filter(module_name='order.checkout', status_int=1).get().pk)
+                               default=11
+    )
     payment_method = models.ForeignKey(mModel.PaymentMethod,
                                        related_name='checkout_payment_method',
                                        on_delete=models.CASCADE,

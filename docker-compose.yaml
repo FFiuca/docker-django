@@ -1,0 +1,50 @@
+version: '1'
+
+services:
+  db:
+    image: mysql
+    container_name: mysql-docker
+    restart: always
+    volumes:
+      - type: volume
+        source: mysql-volume
+        target: '/var/lib/mysql'
+        read_only: false
+    # this can connect to your .env file
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+      # MYSQL_PASSWORD: ${DB_PASSWORD}
+      MYSQL_USER: ${DB_USERNAME}
+      MYSQL_DATABASE: ${DB_DATABASE}
+    ports:
+      - "${DB_PORT_PUBLIC}:3306"
+    healthcheck:
+      test: ["CMD", "mysql", "-h", "localhost", "-u", "${DB_USERNAME}", "-p${DB_PASSWORD}", "-e", "SELECT 1"]
+      interval: 30s
+      timeout: 30s
+      retries: 10
+      start_period: 30s
+
+  django:
+    container_name: django-ecommerce
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: sh -c "python3 manage.py makemigrations && python3 manage.py migrate && python3 manage.py collectstatic && python3 manage.py runserver 0.0.0.0:${APP_PORT}" # makesure your pov is in linux env
+    # command: ./docker-entrypoint.sh
+    restart: on-failure
+    volumes:
+      - .:/app # maybe refer to his container self
+    ports:
+      - "8001:8001"
+    env_file:
+      - .env
+    depends_on:
+      # - migration
+      - db
+    environment:
+      - "APP_PORT=${APP_PORT}"
+
+volumes:
+  mysql-volume:
+    name: mysql-volume
