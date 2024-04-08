@@ -7,13 +7,13 @@ services:
     restart: always
     volumes:
       - type: volume
-        source: mysql-volume
+        source: mysql-volume-django
         target: '/var/lib/mysql'
         read_only: false
     # this can connect to your .env file
     environment:
       MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
-      # MYSQL_PASSWORD: ${DB_PASSWORD}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
       MYSQL_USER: ${DB_USERNAME}
       MYSQL_DATABASE: ${DB_DATABASE}
     ports:
@@ -23,18 +23,26 @@ services:
       interval: 30s
       timeout: 30s
       retries: 10
-      start_period: 30s
+      start_period: 5s
 
   django:
     container_name: django-ecommerce
     build:
       context: .
       dockerfile: Dockerfile
-    command: sh -c "python3 manage.py makemigrations && python3 manage.py migrate && python3 manage.py collectstatic && python3 manage.py runserver 0.0.0.0:${APP_PORT}" # makesure your pov is in linux env
+    # makesure your pov is in linux env
+    # django when app_label doesnt have migratuons folder, must initilaize with makemigration app_label
+    command: sh -c "python3 manage.py makemigrations --noinput && python3 manage.py makemigrations master notification order product store transaction user --noinput && python3 manage.py migrate --noinput &&  python3 manage.py loaddata master/seeder/master-all.json && python3 manage.py collectstatic --noinput && python3 manage.py runserver 0.0.0.0:${APP_PORT}"
     # command: ./docker-entrypoint.sh
+    # command: sh -c "python3 manage.py makemigrations --noinput && python3 manage.py runserver 0.0.0.0:${APP_PORT}" # for debugging when startup fail. exec only can run when container active
     restart: on-failure
     volumes:
       - .:/app # maybe refer to his container self
+    # volumes:
+    #   - type: volume
+    #     source: django-volume
+    #     target: /app
+    #     read_only: false
     ports:
       - "8001:8001"
     env_file:
@@ -46,5 +54,7 @@ services:
       - "APP_PORT=${APP_PORT}"
 
 volumes:
-  mysql-volume:
-    name: mysql-volume
+  mysql-volume-django:
+    name: mysql-volume-django
+  django-volume:
+    name: django-volume

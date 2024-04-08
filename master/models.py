@@ -6,16 +6,16 @@ from master import model_managers
 
 class UserType(models.Model):
     user_type = models.CharField(max_length=50, unique=True)
-    created_at = models.DateTimeField(default=timezone.now())
-    updated_at = models.DateTimeField(auto_now=True, blank=True)
+    created_at = models.DateTimeField(default=timezone.now(), null=True)
+    updated_at = models.DateTimeField(auto_now=True, blank=True, null=True)
 
 # for making flexibilty of status, better not use module, just status and name. but for now it's ok
 class Status(models.Model):
     status_int = models.IntegerField(blank=False)
     status_name = models.CharField(max_length=100)
     module_name = models.CharField(max_length=255)
-    created_at = models.DateTimeField(default=timezone.now())
-    updated_at = models.DateTimeField(auto_now=True, blank=True)
+    created_at = models.DateTimeField(default=timezone.now(), null=True)
+    updated_at = models.DateTimeField(auto_now=True, blank=True, null=True)
 
     # objects = model_managers.StatusManager()
 
@@ -32,7 +32,7 @@ class Category(
     category_name = models.CharField(blank=False, max_length=255,
                                     #  unique=True // will be automatic add unique index and named as field_name. for this case will be duplicate with category_name name below
                                      )
-    created_at = models.DateTimeField(blank=False, auto_now_add=True)
+    created_at = models.DateTimeField(blank=False, auto_now_add=True, null=True)
     updated_at = models.DateTimeField(blank=True, auto_now=True, null=True)
 
     class Meta:
@@ -48,14 +48,14 @@ class PaymentMethod(SafeDeleteModel):
                             #   default=Status.objects.filter(module_name='master.payment_method', status_int=1).get().pk # making error when first migration create, use static and sync with your seeder instead
                               default=4
                               )
-    created_at = models.DateTimeField(blank=False, auto_now_add=True)
+    created_at = models.DateTimeField(blank=False, auto_now_add=True, null=True)
     updated_at = models.DateTimeField(blank=True, auto_now=True, null=True)
 
 class PaymentStatus(SafeDeleteModel):
     _safedelete_policy = SOFT_DELETE
 
     status_name = models.CharField(blank=False, max_length=50)
-    created_at = models.DateTimeField(blank=False, auto_now_add=True)
+    created_at = models.DateTimeField(blank=False, auto_now_add=True, null=True)
     updated_at = models.DateTimeField(blank=True, auto_now=True, null=True)
 
 class Bank(SafeDeleteModel):
@@ -67,5 +67,5 @@ class Bank(SafeDeleteModel):
                             #    default=Status.objects.filter(module_name='master.bank', status_int=1).get().pk
                                 default=21
                                )
-    created_at = models.DateTimeField(blank=False, auto_now_add=True)
+    created_at = models.DateTimeField(blank=False, auto_now_add=True, null=True)
     updated_at = models.DateTimeField(blank=True, auto_now=True, null=True)

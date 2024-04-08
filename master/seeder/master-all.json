@@ -1,0 +1,538 @@
+[
+{
+    "model": "master.usertype",
+    "pk": 1,
+    "fields": {
+        "user_type": "User",
+        "created_at": "2023-09-03T14:11:59.428Z",
+        "updated_at": null
+    }
+},
+{
+    "model": "master.usertype",
+    "pk": 2,
+    "fields": {
+        "user_type": "Owner and User",
+        "created_at": "2023-09-03T14:11:59.433Z",
+        "updated_at": null
+    }
+},
+{
+    "model": "master.usertype",
+    "pk": 3,
+    "fields": {
+        "user_type": "AdminSys",
+        "created_at": "2023-09-03T14:11:59.434Z",
+        "updated_at": null
+    }
+},
+{
+    "model": "master.status",
+    "pk": 1,
+    "fields": {
+        "status_int": 1,
+        "status_name": "active",
+        "module_name": "user.customer",
+        "created_at": "2023-09-03T15:24:25.786Z",
+        "updated_at": "2023-09-03T15:24:25.786Z"
+    }
+},
+{
+    "model": "master.status",
+    "pk": 2,
+    "fields": {
+        "status_int": 0,
+        "status_name": "inactive",
+        "module_name": "user.customer",
+        "created_at": "2023-09-03T15:24:25.786Z",
+        "updated_at": "2023-09-03T15:24:25.786Z"
+    }
+},
+{
+    "model": "master.status",
+    "pk": 3,
+    "fields": {
+        "status_int": 2,
+        "status_name": "confirm email",
+        "module_name": "user.customer",
+        "created_at": "2023-09-03T15:24:25.786Z",
+        "updated_at": "2023-09-03T15:24:25.786Z"
+    }
+},
+{
+    "model": "master.status",
+    "pk": 4,
+    "fields": {
+        "status_int": 1,
+        "status_name": "active",
+        "module_name": "user.owner",
+        "created_at": "2023-09-03T15:24:25.786Z",
+        "updated_at": "2023-09-03T15:24:25.786Z"
+    }
+},
+{
+    "model": "master.status",
+    "pk": 5,
+    "fields": {
+        "status_int": 0,
+        "status_name": "inactive",
+        "module_name": "user.owner",
+        "created_at": "2023-09-03T15:24:25.786Z",
+        "updated_at": "2023-09-03T15:24:25.786Z"
+    }
+},
+{
+    "model": "master.status",
+    "pk": 6,
+    "fields": {
+        "status_int": 2,
+        "status_name": "confirm email",
+        "module_name": "user.owner",
+        "created_at": "2023-09-03T15:24:25.786Z",
+        "updated_at": "2023-09-03T15:24:25.786Z"
+    }
+},
+{
+    "model": "master.status",
+    "pk": 7,
+    "fields": {
+        "status_int": 1,
+        "status_name": "active",
+        "module_name": "store.user_store",
+        "created_at": "2023-09-03T15:24:25.786Z",
+        "updated_at": "2023-09-03T15:24:25.786Z"
+    }
+},
+{
+    "model": "master.status",
+    "pk": 8,
+    "fields": {
+        "status_int": 0,
+        "status_name": "inactive",
+        "module_name": "store.user_store",
+        "created_at": "2023-09-03T15:24:25.786Z",
+        "updated_at": "2023-09-03T15:24:25.786Z"
+    }
+},
+{
+    "model": "master.status",
+    "pk": 9,
+    "fields": {
+        "status_int": 1,
+        "status_name": "active",
+        "module_name": "order.cart",
+        "created_at": "2023-09-03T15:24:25.786Z",
+        "updated_at": "2023-09-03T15:24:25.786Z"
+    }
+},
+{
+    "model": "master.status",
+    "pk": 10,
+    "fields": {
+        "status_int": 0,
+        "status_name": "inactive",
+        "module_name": "order.cart",
+        "created_at": "2023-09-03T15:24:25.786Z",
+        "updated_at": "2023-09-03T15:24:25.786Z"
+    }
+},
+{
+    "model": "master.status",
+    "pk": 11,
+    "fields": {
+        "status_int": 0,
+        "status_name": "inactive",
+        "module_name": "order.checkout",
+        "created_at": "2023-09-03T15:24:25.786Z",
+        "updated_at": "2023-09-03T15:24:25.786Z"
+    }
+},
+{
+    "model": "master.status",
+    "pk": 12,
+    "fields": {
+        "status_int": 1,
+        "status_name": "payment",
+        "module_name": "order.checkout",
+        "created_at": "2023-09-03T15:24:25.786Z",
+        "updated_at": "2023-09-03T15:24:25.786Z"
+    }
+},
+{
+    "model": "master.status",
+    "pk": 13,
+    "fields": {
+        "status_int": 2,
+        "status_name": "packed",
+        "module_name": "order.checkout",
+        "created_at": "2023-09-03T15:24:25.786Z",
+        "updated_at": "2023-09-03T15:24:25.786Z"
+    }
+},
+{
+    "model": "master.status",
+    "pk": 14,
+    "fields": {
+        "status_int": 3,
+        "status_name": "sent",
+        "module_name": "order.checkout",
+        "created_at": "2023-09-03T15:24:25.786Z",
+        "updated_at": "2023-09-03T15:24:25.786Z"
+    }
+},
+{
+    "model": "master.status",
+    "pk": 15,
+    "fields": {
+        "status_int": 4,
+        "status_name": "received",
+        "module_name": "order.checkout",
+        "created_at": "2023-09-03T15:24:25.786Z",
+        "updated_at": "2023-09-03T15:24:25.786Z"
+    }
+},
+{
+    "model": "master.status",
+    "pk": 16,
+    "fields": {
+        "status_int": 5,
+        "status_name": "retur",
+        "module_name": "order.checkout",
+        "created_at": "2023-09-03T15:24:25.786Z",
+        "updated_at": "2023-09-03T15:24:25.786Z"
+    }
+},
+{
+    "model": "master.status",
+    "pk": 17,
+    "fields": {
+        "status_int": 6,
+        "status_name": "complete",
+        "module_name": "order.checkout",
+        "created_at": "2023-09-03T15:24:25.786Z",
+        "updated_at": "2023-09-03T15:24:25.786Z"
+    }
+},
+{
+    "model": "master.status",
+    "pk": 18,
+    "fields": {
+        "status_int": 0,
+        "status_name": "inactive",
+        "module_name": "master.payment_method",
+        "created_at": "2023-09-03T15:24:25.786Z",
+        "updated_at": "2023-09-03T15:24:25.786Z"
+    }
+},
+{
+    "model": "master.status",
+    "pk": 19,
+    "fields": {
+        "status_int": 1,
+        "status_name": "active",
+        "module_name": "master.payment_method",
+        "created_at": "2023-09-03T15:24:25.786Z",
+        "updated_at": "2023-09-03T15:24:25.786Z"
+    }
+},
+{
+    "model": "master.status",
+    "pk": 20,
+    "fields": {
+        "status_int": 0,
+        "status_name": "inactive",
+        "module_name": "master.bank",
+        "created_at": "2023-09-03T15:24:25.786Z",
+        "updated_at": "2023-09-03T15:24:25.786Z"
+    }
+},
+{
+    "model": "master.status",
+    "pk": 21,
+    "fields": {
+        "status_int": 1,
+        "status_name": "active",
+        "module_name": "master.bank",
+        "created_at": "2023-09-03T15:24:25.786Z",
+        "updated_at": "2023-09-03T15:24:25.786Z"
+    }
+},
+{
+    "model": "master.category",
+    "pk": 1,
+    "fields": {
+        "deleted": null,
+        "deleted_by_cascade": false,
+        "category_name": "cat 1",
+        "created_at": null,
+        "updated_at": null
+    }
+},
+{
+    "model": "master.category",
+    "pk": 2,
+    "fields": {
+        "deleted": null,
+        "deleted_by_cascade": false,
+        "category_name": "cat 2",
+        "created_at": null,
+        "updated_at": null
+    }
+},
+{
+    "model": "master.category",
+    "pk": 3,
+    "fields": {
+        "deleted": null,
+        "deleted_by_cascade": false,
+        "category_name": "Jewelery",
+        "created_at": "2023-10-01T03:13:53.129Z",
+        "updated_at": "2023-10-01T03:13:53.129Z"
+    }
+},
+{
+    "model": "master.category",
+    "pk": 4,
+    "fields": {
+        "deleted": null,
+        "deleted_by_cascade": false,
+        "category_name": "Beauty",
+        "created_at": "2023-10-01T05:02:54.611Z",
+        "updated_at": "2023-10-01T05:02:54.611Z"
+    }
+},
+{
+    "model": "master.category",
+    "pk": 5,
+    "fields": {
+        "deleted": null,
+        "deleted_by_cascade": false,
+        "category_name": "Computers",
+        "created_at": "2023-10-01T05:03:59.230Z",
+        "updated_at": "2023-10-01T05:03:59.230Z"
+    }
+},
+{
+    "model": "master.category",
+    "pk": 6,
+    "fields": {
+        "deleted": null,
+        "deleted_by_cascade": false,
+        "category_name": "Industrial",
+        "created_at": "2023-10-01T05:03:59.235Z",
+        "updated_at": "2023-10-01T05:03:59.235Z"
+    }
+},
+{
+    "model": "master.category",
+    "pk": 7,
+    "fields": {
+        "deleted": null,
+        "deleted_by_cascade": false,
+        "category_name": "Home",
+        "created_at": "2023-10-01T05:03:59.239Z",
+        "updated_at": "2023-10-01T05:03:59.239Z"
+    }
+},
+{
+    "model": "master.category",
+    "pk": 8,
+    "fields": {
+        "deleted": null,
+        "deleted_by_cascade": false,
+        "category_name": "Music",
+        "created_at": "2023-10-01T05:03:59.242Z",
+        "updated_at": "2023-10-01T05:03:59.242Z"
+    }
+},
+{
+    "model": "master.category",
+    "pk": 9,
+    "fields": {
+        "deleted": null,
+        "deleted_by_cascade": false,
+        "category_name": "Books",
+        "created_at": "2023-10-01T05:03:59.244Z",
+        "updated_at": "2023-10-01T05:03:59.244Z"
+    }
+},
+{
+    "model": "master.category",
+    "pk": 10,
+    "fields": {
+        "deleted": null,
+        "deleted_by_cascade": false,
+        "category_name": "Health",
+        "created_at": "2023-10-01T16:56:02.092Z",
+        "updated_at": "2023-10-01T16:56:02.092Z"
+    }
+},
+{
+    "model": "master.category",
+    "pk": 11,
+    "fields": {
+        "deleted": null,
+        "deleted_by_cascade": false,
+        "category_name": "Outdoors",
+        "created_at": "2023-10-15T15:57:58.590Z",
+        "updated_at": "2023-10-15T15:57:58.590Z"
+    }
+},
+{
+    "model": "master.category",
+    "pk": 12,
+    "fields": {
+        "deleted": null,
+        "deleted_by_cascade": false,
+        "category_name": "Electronics",
+        "created_at": "2023-10-15T15:58:46.654Z",
+        "updated_at": "2023-10-15T15:58:46.654Z"
+    }
+},
+{
+    "model": "master.category",
+    "pk": 13,
+    "fields": {
+        "deleted": null,
+        "deleted_by_cascade": false,
+        "category_name": "Sports",
+        "created_at": "2023-10-15T16:00:15.437Z",
+        "updated_at": "2023-10-15T16:00:15.437Z"
+    }
+},
+{
+    "model": "master.category",
+    "pk": 14,
+    "fields": {
+        "deleted": null,
+        "deleted_by_cascade": false,
+        "category_name": "Kids",
+        "created_at": "2023-10-15T16:06:32.963Z",
+        "updated_at": "2023-10-15T16:06:32.963Z"
+    }
+},
+{
+    "model": "master.category",
+    "pk": 15,
+    "fields": {
+        "deleted": null,
+        "deleted_by_cascade": false,
+        "category_name": "Baby",
+        "created_at": "2023-10-15T16:11:52.905Z",
+        "updated_at": "2023-10-15T16:11:52.905Z"
+    }
+},
+{
+    "model": "master.category",
+    "pk": 16,
+    "fields": {
+        "deleted": null,
+        "deleted_by_cascade": false,
+        "category_name": "Tools",
+        "created_at": "2023-10-15T16:54:51.325Z",
+        "updated_at": "2023-10-15T16:54:51.325Z"
+    }
+},
+{
+    "model": "master.category",
+    "pk": 17,
+    "fields": {
+        "deleted": null,
+        "deleted_by_cascade": false,
+        "category_name": "Toys",
+        "created_at": "2023-10-15T17:00:50.007Z",
+        "updated_at": "2023-10-15T17:00:50.007Z"
+    }
+},
+{
+    "model": "master.category",
+    "pk": 18,
+    "fields": {
+        "deleted": null,
+        "deleted_by_cascade": false,
+        "category_name": "Shoes",
+        "created_at": "2024-04-05T02:34:21.914Z",
+        "updated_at": "2024-04-05T02:34:21.914Z"
+    }
+},
+{
+    "model": "master.category",
+    "pk": 19,
+    "fields": {
+        "deleted": null,
+        "deleted_by_cascade": false,
+        "category_name": "Garden",
+        "created_at": "2024-04-05T02:34:25.287Z",
+        "updated_at": "2024-04-05T02:34:25.287Z"
+    }
+},
+{
+    "model": "master.paymentmethod",
+    "pk": 1,
+    "fields": {
+        "deleted": null,
+        "deleted_by_cascade": false,
+        "payment_method_name": "Wallet",
+        "status": 19,
+        "created_at": "2023-10-14T22:29:33Z",
+        "updated_at": null
+    }
+},
+{
+    "model": "master.paymentmethod",
+    "pk": 4,
+    "fields": {
+        "deleted": null,
+        "deleted_by_cascade": false,
+        "payment_method_name": "Virtual Account",
+        "status": 19,
+        "created_at": "2023-10-14T22:29:33Z",
+        "updated_at": "2023-10-14T22:29:34Z"
+    }
+},
+{
+    "model": "master.paymentmethod",
+    "pk": 5,
+    "fields": {
+        "deleted": null,
+        "deleted_by_cascade": false,
+        "payment_method_name": "Manual Transfer",
+        "status": 19,
+        "created_at": "2023-10-14T22:29:33Z",
+        "updated_at": "2023-10-14T22:29:34Z"
+    }
+},
+{
+    "model": "master.paymentstatus",
+    "pk": 1,
+    "fields": {
+        "deleted": null,
+        "deleted_by_cascade": false,
+        "status_name": "Pending",
+        "created_at": null,
+        "updated_at": null
+    }
+},
+{
+    "model": "master.paymentstatus",
+    "pk": 2,
+    "fields": {
+        "deleted": null,
+        "deleted_by_cascade": false,
+        "status_name": "Settlement",
+        "created_at": "2023-10-14T22:30:47Z",
+        "updated_at": null
+    }
+},
+{
+    "model": "master.paymentstatus",
+    "pk": 3,
+    "fields": {
+        "deleted": null,
+        "deleted_by_cascade": false,
+        "status_name": "Returned",
+        "created_at": "2023-10-14T22:33:06Z",
+        "updated_at": null
+    }
+}
+]

@@ -61,6 +61,7 @@ INSTALLED_APPS = [
     "product",
     "store",
     "user",
+    "transaction",
 
      # third
     "debug_toolbar",
@@ -175,7 +176,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': env('DB_DATABASE'),
-        'USER' : env('DB_USERNAME'),
+        'USER' : env('DB_ROOT_USERNAME'),
         'PASSWORD' : env('DB_PASSWORD'),
         'STRICT_TRANS_TABLES': True,
         'STRICT_ALL_TABLES': True,
@@ -193,6 +194,21 @@ DATABASES = {
     #     'sql_mode': 'traditional',
     # }
 }
+
+print({
+    'NAME': env('DB_DATABASE'),
+        'USER' : env('DB_USERNAME'),
+        'PASSWORD' : env('DB_PASSWORD'),
+        "HOST": env('DB_HOST'),
+        "PORT": env('DB_PORT'),
+        'EMAIL_HOST': env('EMAIL_HOST'),
+        'EMAIL_PORT': env('EMAIL_PORT'),
+        'EMAIL_HOST_USER': env('EMAIL_HOST_USER'),
+        'EMAIL_HOST_PASSWORD': env('EMAIL_HOST_PASSWORD'),
+        'EMAIL_USE_TLS': env('EMAIL_USE_TLS'),
+        'EMAIL_FROM_ADDRESS': env('EMAIL_FROM_ADDRESS'),
+        'EMAIL_FROM_NAME': env('EMAIL_FROM_NAME'),
+})
 
 CACHES = {
     # "default": {
