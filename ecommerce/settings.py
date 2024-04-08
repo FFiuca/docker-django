@@ -210,6 +210,9 @@ print({
         'EMAIL_FROM_NAME': env('EMAIL_FROM_NAME'),
 })
 
+REDIS_HOST= env('REDIS_HOST')
+REDIS_PORT= env('REDIS_PORT')
+
 CACHES = {
     # "default": {
     #     'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
@@ -220,7 +223,7 @@ CACHES = {
     "default" : {
         "BACKEND": "django.core.cache.backends.redis.RedisCache",
         "LOCATION": [
-            "redis://127.0.0.1:6379",  # leader
+            "redis://{}:{}".format(REDIS_HOST, REDIS_PORT),  # leader and redis is container name of redis
             # "redis://127.0.0.1:6378",  # read-replica 1
             # "redis://127.0.0.1:6377",  # read-replica 2
         ],
@@ -279,6 +282,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 INTERNAL_IPS = [
     # ...
     "127.0.0.1",
+    "0.0.0.0",
     # ...
 ]
 
@@ -297,8 +301,8 @@ Q_CLUSTER = {
     # 2 drivers can use in same time
     # for now just redis work with auto test
     'redis': {
-        'host': '127.0.0.1',
-        'port': 6379,
+        'host': REDIS_HOST,
+        'port': REDIS_PORT,
         'db': 0,
     },
 

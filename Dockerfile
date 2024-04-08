@@ -1,5 +1,7 @@
 FROM python
 
+RUN apt-get update && apt-get install -y iputils-ping
+
 WORKDIR ./app/
 
 COPY requirements.txt ./app/
