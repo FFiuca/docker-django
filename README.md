@@ -11,6 +11,8 @@ This is my mini project after finishing django and docker course.  Check out det
  - `  docker compose start`
  - jump into container shell and run `python3 manage.py test`
 
+ or you can visit my image in https://hub.docker.com/r/ffiuca/django-ecommerce.
+
 ## Django Features Implementation 
 
 Many features that Django already provide. Due I have experience in laravel, so its just little bit different but just difference in some technical.
