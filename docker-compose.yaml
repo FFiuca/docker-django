@@ -58,14 +58,15 @@ services:
     command: sh -c "python3 manage.py makemigrations --noinput && python3 manage.py makemigrations master notification order product store transaction user --noinput && python3 manage.py migrate --noinput &&  python3 manage.py loaddata master/seeder/master-all.json && python3 manage.py collectstatic --noinput && python3 manage.py runserver 0.0.0.0:${APP_PORT}"
     # command: ./docker-entrypoint.sh
     # command: sh -c "python3 manage.py makemigrations --noinput && python3 manage.py runserver 0.0.0.0:${APP_PORT}" # for debugging when startup fail. exec only can run when container active
+    # command : sh -c "tail -f /dev/null" # to keep container life
     restart: on-failure
-    volumes:
-      - .:/app # it will bind current path to docker
     # volumes:
-    #   - type: volume
-    #     source: django-volume
-    #     target: /app
-    #     read_only: false
+    #   - .:/app # it will bind current path to docker
+    volumes:
+      - type: volume
+        source: django-volume
+        target: /app
+        read_only: false
     ports:
       - "8001:8001"
     env_file:
