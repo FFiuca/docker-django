@@ -328,3 +328,18 @@ EMAIL_USE_TLS=env('EMAIL_USE_TLS')
 EMAIL_FROM_ADDRESS=env('EMAIL_FROM_ADDRESS')
 EMAIL_FROM_NAME=env('EMAIL_FROM_NAME')
 
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "handlers": {
+        "console": {
+            "class": "logging.StreamHandler",
+        },
+    },
+    "root": {
+        "handlers": ["console"],
+        "level": "DEBUG",
+        'filename': os.path.join(BASE_DIR, '/log/django.log'),
+    },
+}
+
