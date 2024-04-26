@@ -32,6 +32,7 @@ environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 APP_NAME= 'django-ecommerce'
+APP_ENV= env('APP_ENV')
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-yor%sow7jfz3fq$=hqs!6fw$vka_y(jd=w=a=3fu8hu746673g'
@@ -41,8 +42,14 @@ DEBUG = env('DEBUG')
 
 ASGI_APPLICATION = 'ecommerce.asgi.application'
 
-ALLOWED_HOSTS = []
-APPEND_SLASH = True # use to append slash at end of url with '/' and only wirk with get request, django strict for url and must match on registered routing
+ALLOWED_HOSTS = [
+    # '.localhost',
+    # '127.0.0.1',
+    # '[::1]',
+    '*' # testing purpose
+]
+
+APPEND_SLASH = True # use to append slash at end of url with '/' and only work with get request, django strict for url and must match on registered routing
 # AUTH_USER_MODEL = 'your_app.CustomUser' # when you want to make custom user model and make it as default auth model
 # Application definition
 

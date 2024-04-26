@@ -12,6 +12,7 @@ RUN pip install -r requirements.txt
 
 COPY . .
 
+ENV APP_HOST 0.0.0.0
 ENV APP_PORT 8001
 ENV DEBUG_PORT 5678
 
@@ -21,4 +22,5 @@ EXPOSE ${DEBUG_PORT}
 # CMD sh -c "python3 manage.py makemigrations --noinput && python3 manage.py makemigrations master notification order product store transaction user --noinput && python3 manage.py migrate --noinput &&  python3 manage.py loaddata master/seeder/master-all.json && python3 manage.py collectstatic --noinput && python3 manage.py runserver 0.0.0.0:${APP_PORT}"
 
 # if you want build image and use it in another purpose, like k8s maybe. prefer use your all query to build image inside dockerfile instead docker-compose.yaml. this is standard way
-CMD sh -c "python3 manage.py makemigrations --noinput && python3 manage.py makemigrations master notification order product store transaction user --noinput && python3 manage.py migrate --noinput &&  python3 manage.py loaddata master/seeder/master-all.json && python3 manage.py collectstatic --noinput && python3 -m debugpy --listen 0.0.0.0:${DEBUG_PORT} manage.py runserver 0.0.0.0:${APP_PORT}"
+# CMD sh -c "python3 manage.py makemigrations --noinput && python3 manage.py makemigrations master notification order product store transaction user --noinput && python3 manage.py migrate --noinput &&  python3 manage.py loaddata master/seeder/master-all.json && python3 manage.py collectstatic --noinput && python3 -m debugpy --listen 0.0.0.0:${DEBUG_PORT} manage.py runserver 0.0.0.0:${APP_PORT}"
+CMD sh -c "python3 manage.py makemigrations --noinput && python3 manage.py makemigrations master notification order product store transaction user --noinput && python3 manage.py migrate --noinput &&  python3 manage.py loaddata master/seeder/master-all.json && python3 manage.py collectstatic --noinput && daphne ecommerce.asgi:application -b ${APP_HOST} -p ${APP_PORT}"
