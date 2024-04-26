@@ -39,6 +39,7 @@ SECRET_KEY = 'django-insecure-yor%sow7jfz3fq$=hqs!6fw$vka_y(jd=w=a=3fu8hu746673g
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env('DEBUG')
+print('debug', DEBUG, DEBUG is True, settings.DEBUG is True)
 
 ASGI_APPLICATION = 'ecommerce.asgi.application'
 
@@ -288,10 +289,15 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # For django debug toolbar config where he must show
 INTERNAL_IPS = [
     # ...
+    "*",
     "127.0.0.1",
     "0.0.0.0",
     # ...
 ]
+
+DEBUG_TOOLBAR_CONFIG = {
+#     'SHOW_TOOLBAR_CALLBACK': lambda req : True # testing purpose
+}
 
 Q_CLUSTER = {
     'name': 'ecommerce_project',
@@ -335,6 +341,7 @@ EMAIL_USE_TLS=env('EMAIL_USE_TLS')
 EMAIL_FROM_ADDRESS=env('EMAIL_FROM_ADDRESS')
 EMAIL_FROM_NAME=env('EMAIL_FROM_NAME')
 
+# manage carefully due can effect performance issue and for now stable for py manage.py runserver, daphne is not
 LOGGING = {
     "version": 1,
     "disable_existing_loggers": False,
@@ -342,11 +349,34 @@ LOGGING = {
         "console": {
             "class": "logging.StreamHandler",
         },
+        "file": {
+            "class": "logging.FileHandler",
+            'level': 'DEBUG',
+            'filename': 'app.log',
+        }
     },
-    "root": {
-        "handlers": ["console"],
-        "level": "DEBUG",
-        'filename': os.path.join(BASE_DIR, '/log/django.log'),
-    },
+    "loggers": {
+        # https://docs.djangoproject.com/en/5.0/ref/logging/#django-logging-extensions
+        # "django.db.backends": {
+        #     "handlers": [
+        #         # "console",
+        #         "file"
+        #     ],
+        #     # "class": "logging.FileHandler",
+        #     "level": "DEBUG",
+        #     # 'filename': 'general.log',
+        #     'propagate': True,
+        # },
+        "django.db.backends": {
+            "handlers": [
+                # "console",
+                "file"
+            ],
+            # "class": "logging.FileHandler",
+            "level": "DEBUG",
+            # 'filename': 'general.log',
+            'propagate': True,
+        },
+    }
 }
 
