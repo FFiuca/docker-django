@@ -70,3 +70,14 @@
 (0.000) RELEASE SAVEPOINT `s23976_x1`; args=None; alias=default
 (0.078) SELECT `silk_sqlquery`.`id`, `silk_sqlquery`.`query`, `silk_sqlquery`.`start_time`, `silk_sqlquery`.`end_time`, `silk_sqlquery`.`time_taken`, `silk_sqlquery`.`identifier`, `silk_sqlquery`.`request_id`, `silk_sqlquery`.`traceback`, `silk_sqlquery`.`analysis` FROM `silk_sqlquery` WHERE `silk_sqlquery`.`request_id` = '67e9d509-9b71-4b89-9674-b09587bca284'; args=('67e9d509-9b71-4b89-9674-b09587bca284',); alias=default
 (0.000) UPDATE `silk_request` SET `path` = '/admin/jsi18n/', `query_params` = '', `raw_body` = '', `body` = '', `method` = 'GET', `start_time` = '2024-04-26 12:02:24.335940', `view_name` = 'admin:jsi18n', `end_time` = '2024-04-26 12:02:24.422448', `time_taken` = 86.508e0, `encoded_headers` = '{\"host\": \"127.0.0.1:8002\", \"connection\": \"keep-alive\", \"user-agent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36 Edg/123.0.0.0\", \"accept\": \"*/*\", \"sec-fetch-site\": \"none\", \"sec-fetch-mode\": \"cors\", \"sec-fetch-dest\": \"empty\", \"accept-encoding\": \"gzip, deflate, br, zstd\", \"accept-language\": \"en-US,en;q=0.9\", \"cookie\": \"********************\"}', `meta_time` = NULL, `meta_num_queries` = NULL, `meta_time_spent_queries` = NULL, `pyprofile` = '', `prof_file` = '', `num_sql_queries` = 2 WHERE `silk_request`.`id` = '67e9d509-9b71-4b89-9674-b09587bca284'; args=('/admin/jsi18n/', '', '', '', 'GET', '2024-04-26 12:02:24.335940', 'admin:jsi18n', '2024-04-26 12:02:24.422448', 86.508, '{"host": "127.0.0.1:8002", "connection": "keep-alive", "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36 Edg/123.0.0.0", "accept": "*/*", "sec-fetch-site": "none", "sec-fetch-mode": "cors", "sec-fetch-dest": "empty", "accept-encoding": "gzip, deflate, br, zstd", "accept-language": "en-US,en;q=0.9", "cookie": "********************"}', '', '', 2, '67e9d509-9b71-4b89-9674-b09587bca284'); alias=default
+(0.015) 
+                SELECT VERSION(),
+                       @@sql_mode,
+                       @@default_storage_engine,
+                       @@sql_auto_is_null,
+                       @@lower_case_table_names,
+                       CONVERT_TZ('2001-01-01 01:00:00', 'UTC', 'UTC') IS NOT NULL
+            ; args=None; alias=default
+(0.000) SET SESSION TRANSACTION ISOLATION LEVEL READ COMMITTED; args=None; alias=default
+(0.032) SHOW FULL TABLES; args=None; alias=default
+(0.000) SELECT `django_migrations`.`id`, `django_migrations`.`app`, `django_migrations`.`name`, `django_migrations`.`applied` FROM `django_migrations`; args=(); alias=default

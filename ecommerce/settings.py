@@ -191,6 +191,10 @@ DATABASES = {
         'sql_mode': 'traditional',
         "HOST": env('DB_HOST'),
         "PORT": env('DB_PORT'),
+        'OPTIONS' : {
+            # 'ssl_mode': 'REQUIRED' # note: windows doesn't support this option, maybe azure use windows for mysql service
+            'ssl': '/classified/mysql/ssl/DigiCertGlobalRootCA.crt.pem' # for ssl connection
+        }
     },
     # 'test' : {
     #     'ENGINE': 'django.db.backends.mysql',
