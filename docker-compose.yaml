@@ -66,7 +66,7 @@ services:
     volumes:
       - type: volume
         source: django-volume
-        target: /app
+        target: /app/django # be entrypoint path
         read_only: false
     ports:
       - "${APP_PORT}:${APP_PORT}"
@@ -81,6 +81,15 @@ services:
       - "APP_PORT=${APP_PORT}"
     networks:
      - django-network
+
+  django-debug:
+    container_name: django-debug
+    image: ffiuca/mycurl
+    volumes:
+      - type: volume
+        source: django-volume
+        target: /app/django
+        read_only: false
 
 volumes:
   mysql-volume-django:

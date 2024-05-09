@@ -1,2 +1,4 @@
 seeder json must saved with utf-8 encoding
 use model manager when want scope feature like in Laravel -> https://docs.djangoproject.com/en/4.2/topics/db/managers/
+
+when you have problem with workdir and target volume in compose not sync. you can remove volume firts.
